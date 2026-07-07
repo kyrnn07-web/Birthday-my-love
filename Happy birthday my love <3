@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Happy Birthday My Love</title>
+<style>
+body{margin:0;font-family:Arial;background:linear-gradient(#021b46,#2b6cb0);color:#fff;overflow-x:hidden}
+#stars{position:fixed;inset:0;background:radial-gradient(circle,#fff 1px,transparent 1px);background-size:40px 40px;opacity:.25;animation:move 30s linear infinite}
+@keyframes move{from{transform:translateY(0)}to{transform:translateY(40px)}}
+.wrap{position:relative;z-index:2;max-width:900px;margin:auto;padding:30px;text-align:center}
+.btn{padding:14px 28px;border-radius:30px;border:none;background:#fff;color:#124ea0;font-weight:bold;cursor:pointer}
+.hidden{display:none}.card{background:rgba(255,255,255,.12);padding:25px;border-radius:20px;backdrop-filter:blur(8px);margin-top:20px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.gallery img{width:100%;border-radius:14px}
+.heart{position:fixed;top:-20px;animation:fall linear forwards}@keyframes fall{to{transform:translateY(110vh)}}
+</style></head><body><div id="stars"></div><div class="wrap">
+<h1>🎂 Happy 21st Birthday, My Love 💙</h1>
+<p>Klik hadiah di bawah untuk membuka kejutan.</p>
+<button class="btn" onclick="openGift()">🎁 Open Your Gift</button>
+<div id="content" class="hidden">
+<div class="card"><h2>💌 Untuk My Love</h2><p id="typing"></p></div>
+<div class="card"><h2>📸 Kenangan Kita</h2><p>foto 1, foto 2.jpg, foto 3.jpg dengan foto kalian.</p>
+<div class="gallery"><img src="foto 1.jpg"><img src="foto 2.jpg"><img src="foto 3.jpg"></div></div>
+<div class="card"><audio controls loop><source src="lagu.mp3" type="audio/mpeg"></audio><p>Ganti <b>lagu.mp3</b> dengan lagu romantis favorit kalian.</p></div>
+</div></div>
+<script>
+const msg="Selamat ulang tahun ke-21, My Love. Terima kasih sudah menjadi rumah terbaik dalam hidupku. Semoga setiap langkahmu dipenuhi kebahagiaan, kesehatan, dan semua impianmu tercapai. Aku berharap kita terus bersama, saling menguatkan, dan menciptakan lebih banyak kenangan indah. I love you, today, tomorrow, and forever. 💙";
+function openGift(){document.getElementById('content').classList.remove('hidden');let i=0;let t=setInterval(()=>{typing.innerHTML+=msg[i++]||'';if(i>msg.length)clearInterval(t)},30);confetti();setInterval(hearts,250);}
+function hearts(){let h=document.createElement('div');h.className='heart';h.textContent='💙';h.style.left=Math.random()*100+'vw';h.style.fontSize=(18+Math.random()*22)+'px';h.style.animationDuration=(3+Math.random()*3)+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),7000);}
+function confetti(){for(let i=0;i<120;i++){setTimeout(hearts,i*20)}}
+</script></body></html>
